@@ -12,11 +12,10 @@ my_soup = BeautifulSoup(my_content, "lxml")
 #print my_soup.prettify()
 
 for my_item in my_soup:
-    tags = my_soup.findAll('a')
-    tags_content= my_soup.a
-    file_name = tags_content.contents[0]+".pdf"
-    my_links = tags["href"]
-    print(my_links, file_name)
+    tags_links = my_soup.find_all('a')
+    #print tags_links['href'], tags_links.contents[0]
+    print tags_links
+
     #wget.download(my_links, file_name)
 pass
 
