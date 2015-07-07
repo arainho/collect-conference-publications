@@ -22,20 +22,28 @@ for item in a_tags:
         if my_link.find('.pdf') != -1:
             file_name = item.contents[0]
 
+            # replace if filename begins with space ou ifen
+            if file_name.startswith('-'):
+                file_name = file_name.replace("-", "_")
+            if file_name.startswith(" "):
+                file_name = file_name.replace(" ", "")
+
             # replace spaces
             file_no_spaces = file_name.replace(" ", "_")
 
             # replace commas
-            file_no_spaces = file_name.replace(",", "_")
+            file_no_commas = file_no_spaces.replace(",", "_")
 
             # replace colon
-            file_no_spaces = file_name.replace(":", "_")
+            file_no_colon = file_no_commas.replace(":", "_")
 
             # replace semicolon
-            file_no_spaces = file_name.replace(";", "_")
+            file_no_semicolon = file_no_colon.replace(";", "_")
 
             # replace forward slash
-            file_replaced = file_no_spaces.replace("/", "-")+'.pdf'
+            file_no_forward_slash = file_no_semicolon.replace("/", "-")
+
+            file_replaced = file_no_forward_slash+'.pdf'
 
             # download pdf files
             print ("downloading: ", my_link, file_replaced)
