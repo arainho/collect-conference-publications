@@ -1,3 +1,5 @@
+#encoding=utf-8
+
 __author__ = 'raimaz'
 
 from bs4 import BeautifulSoup
