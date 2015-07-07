@@ -3,7 +3,7 @@ __author__ = 'raimaz'
 import urllib2
 import re
 
-url="www.google.com"
+url="http://alcatel-lucent.cvent.com/Surveys/Questions/SurveyMain.aspx?r=8a6cedab-dbe0-442d-a76f-c4ef13035c14&ma=1"
 
 #connect to a URL
 website = urllib2.urlopen(url)
