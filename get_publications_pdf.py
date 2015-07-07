@@ -22,8 +22,17 @@ for item in a_tags:
         if my_link.find('.pdf') != -1:
             file_name = item.contents[0]
 
-            #replace spaces
+            # replace spaces
             file_no_spaces = file_name.replace(" ", "_")
+
+            # replace commas
+            file_no_spaces = file_name.replace(",", "_")
+
+            # replace colon
+            file_no_spaces = file_name.replace(":", "_")
+
+            # replace semicolon
+            file_no_spaces = file_name.replace(";", "_")
 
             # replace forward slash
             file_replaced = file_no_spaces.replace("/", "-")+'.pdf'
