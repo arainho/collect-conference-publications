@@ -3,17 +3,24 @@ __author__ = 'Andre Rainho '
 __email__ = 'arainho.it@gmail.com'
 
 from bs4 import BeautifulSoup
+import os, sys
 import urllib2
 import wget
 
 my_url = raw_input("Enter a website to extract pdf publications from: ")
 my_content = urllib2.urlopen(my_url).read()
-
-#print my_soup.prettify()
 my_soup = BeautifulSoup(my_content, "lxml")
+
+my_path = "./my-pubs"
 
 # find a tag
 a_tags = my_soup.findAll('a')
+
+# check if folder to hold publications exists
+# if not create it
+if not os.path.exists(my_path):
+    os.mkdir(my_path, 0755)
+
 for item in a_tags:
 
         # get href items
@@ -43,6 +50,7 @@ for item in a_tags:
             # replace forward slash
             file_no_forward_slash = file_no_semicolon.replace("/", "-")
 
+            # add .pdf extension
             file_replaced = file_no_forward_slash+'.pdf'
 
             # download pdf files
