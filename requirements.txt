@@ -1,3 +1,2 @@
-urllib2
 beautifulsoup4
 wget
