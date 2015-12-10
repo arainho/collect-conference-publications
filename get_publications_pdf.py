@@ -59,5 +59,3 @@ for item in a_tags:
 
 print('done')
 
-pass
-
